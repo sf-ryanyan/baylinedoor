@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bayline Door Co. — Garage Door Installation &amp; Repair</title>
+<meta name="description" content="New garage doors and repair across San Francisco, the Peninsula and the South Bay. Send three photos, get a written estimate the same business day.">
+<meta name="theme-color" content="#262522">
+<meta property="og:title" content="Bayline Door Co.">
+<meta property="og:description" content="New garage doors and repair across SF, the Peninsula and the South Bay.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/hero.jpg">
+
+<!-- ══════════════════════════════════════════════════════════════
+     TEMPLATE — replace before any real use
+       "Bayline Door Co."        → business name        (5 places)
+       "(650) 555-0142"          → phone                (5 places, incl. tel:)
+       "info@baylinedoor.com"    → email
+       "CSLB #1XXXXXX"           → licence number       (4 places) — REQUIRED in CA
+       "Serving the Peninsula since 2009" → real founding year / area
+       service area + hours in the footer
+       delete the "Template." paragraph in the footer
+
+     All contact details are placeholders. The phone uses the 555-01xx
+     range, reserved for examples, so it reaches no one.
+
+     FORMS — wired for Netlify Forms. GitHub Pages cannot process form
+     posts; deploy on Netlify, or swap in a Formspree action.
+     ══════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..700&display=swap">
+
+<style>
+/* ───────────────────────────────────────────────────────────────
+   Bayline Door Co.
+   Wide-set Archivo throughout, warm graphite ground (never black),
+   very generous vertical rhythm, photography carrying the page.
+   Bronze appears only as small marks and hairlines.
+   ─────────────────────────────────────────────────────────────── */
+:root{
+  --ink:#262522;
+  --ink-2:#2E2D29;
+  --paper:#F6F4EF;
+  --paper-2:#EDEAE3;
+  --surface:#FFFEFB;
+
+  --fg:#2A2926;
+  --fg-2:#6B6862;
+  --on-ink:#F4F1EA;
+  --on-ink-2:#A8A49C;
+
+  --bronze:#A8824E;
+  --bronze-lt:#C9A271;
+  --bronze-soft:#EFE6D6;
+
+  --line:#DDD8CE;
+  --line-soft:#E8E4DA;
+  --line-dk:rgba(244,241,234,.16);
+  --warn:#9A4428;
+
+  --ui:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+       "PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+
+  --gut:clamp(22px,5vw,72px);
+  --vspace:clamp(96px,12vw,190px);
+
+  color-scheme:light;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none!important}}
+body{
+  margin:0; background:var(--paper); color:var(--fg);
+  font-family:var(--ui); font-size:17px; font-weight:400; line-height:1.72;
+  font-variation-settings:"wdth" 104;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+[hidden]{display:none!important}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3,h4{margin:0; text-wrap:balance}
+:focus-visible{outline:2px solid var(--bronze); outline-offset:4px}
+
+.wrap{max-width:1320px; margin:0 auto; padding-inline:var(--gut)}
+
+/* display type — wide axis, open tracking, tall leading */
+h1,h2{font-variation-settings:"wdth" 114,"wght" 500; letter-spacing:0; line-height:1.1}
+h1{font-size:clamp(2.7rem,6.4vw,5.5rem)}
+h2{font-size:clamp(2rem,4vw,3.3rem); line-height:1.14}
+h3{font-variation-settings:"wdth" 108,"wght" 600; font-size:1.06rem; line-height:1.45}
+h4{font-variation-settings:"wdth" 108,"wght" 600; font-size:1rem}
+
+.eyebrow{
+  font-size:.72rem; font-variation-settings:"wdth" 108,"wght" 600;
+  letter-spacing:.26em; text-transform:uppercase; color:var(--bronze);
+}
+.lede{font-size:1.14rem; color:var(--fg-2); max-width:52ch; line-height:1.8}
+
+/* ── header ───────────────────────────────────────────────────── */
+.hdr{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:60;
+  background:rgba(38,37,34,.92); backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line-dk);
+}
+.hdr .wrap{display:flex; align-items:center; gap:clamp(16px,3vw,40px); min-height:82px}
+
+.brand{display:flex; align-items:center; gap:13px; margin-right:auto; text-decoration:none; flex:none}
+.brand svg{flex:none; width:32px; height:32px}
+.brand .bt{display:flex; flex-direction:column; line-height:1}
+.brand .bn{
+  font-size:1.5rem; color:#FFFDF8; line-height:1;
+  font-variation-settings:"wdth" 112,"wght" 600; letter-spacing:.015em;
+}
+.brand .bs{
+  font-size:.56rem; font-variation-settings:"wdth" 108,"wght" 600;
+  letter-spacing:.34em; text-transform:uppercase; color:var(--bronze-lt); margin-top:7px;
+}
+@media(max-width:460px){.brand .bn{font-size:1.3rem} .brand svg{width:27px;height:27px} .brand .bs{letter-spacing:.26em}}
+
+.nav{display:flex; gap:clamp(18px,2.4vw,34px); font-size:.89rem; color:var(--on-ink-2)}
+.nav a{text-decoration:none; padding-block:5px; border-bottom:1px solid transparent; white-space:nowrap}
+.nav a:hover{color:var(--bronze-lt); border-bottom-color:var(--bronze)}
+.nav .last{color:#FFFDF8}
+@media(max-width:860px){.nav a:not(.last){display:none}}
+
+/* ── hero ─────────────────────────────────────────────────────── */
+.hero{position:relative; background:var(--ink); color:var(--on-ink); min-height:min(86vh,860px); display:flex; align-items:flex-end}
+@media(max-width:720px){.hero{min-height:auto}}
+.hero picture,.hero img.bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0}
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:
+    linear-gradient(94deg,rgba(26,25,22,.90) 0%,rgba(26,25,22,.72) 34%,rgba(26,25,22,.18) 68%,rgba(26,25,22,.10) 100%),
+    linear-gradient(0deg,rgba(26,25,22,.72) 0%,rgba(26,25,22,.12) 46%,transparent 70%);
+}
+.hero .wrap{position:relative; z-index:2; width:100%; padding-block:clamp(110px,16vw,180px) clamp(56px,8vw,96px)}
+.hero h1{max-width:15ch; margin-top:30px; color:#FFFDF8}
+.hero .lede{margin-top:32px; color:#DAD6CD; max-width:44ch}
+
+.cta{display:flex; gap:16px; flex-wrap:wrap; margin-top:44px}
+.btn{
+  display:inline-flex; align-items:center; gap:11px; text-decoration:none; cursor:pointer;
+  font-family:var(--ui); font-size:.96rem; font-variation-settings:"wdth" 106,"wght" 600;
+  letter-spacing:.015em; padding:18px 32px; border:1px solid transparent; transition:all .2s ease;
+}
+.btn-solid{background:var(--bronze); color:#1B1306; border-color:var(--bronze)}
+.btn-solid:hover{background:var(--bronze-lt); border-color:var(--bronze-lt)}
+.btn-line{border-color:rgba(255,253,248,.34); color:#FFFDF8}
+.btn-line:hover{border-color:#FFFDF8; background:rgba(255,253,248,.08)}
+
+.cred{
+  margin-top:clamp(40px,6vw,64px); padding-top:26px; border-top:1px solid rgba(255,253,248,.2);
+  display:flex; flex-wrap:wrap; gap:11px 36px; font-size:.84rem; color:#BCB8AF;
+}
+.cred b{color:var(--bronze-lt); font-variation-settings:"wght" 600; font-variant-numeric:tabular-nums}
+
+/* ── two paths ────────────────────────────────────────────────── */
+.paths{background:var(--ink-2); color:var(--on-ink)}
+.paths .wrap{display:grid; grid-template-columns:1fr 1fr}
+@media(max-width:840px){.paths .wrap{grid-template-columns:1fr}}
+.path{
+  display:block; text-decoration:none; color:inherit; min-width:0;
+  padding:clamp(44px,6vw,76px) clamp(28px,4vw,60px) clamp(40px,5vw,66px) 0;
+  transition:background .24s ease;
+}
+.path+.path{border-left:1px solid var(--line-dk); padding-left:clamp(28px,4vw,60px); padding-right:0}
+@media(max-width:840px){
+  .path{padding-right:0}
+  .path+.path{border-left:0; border-top:1px solid var(--line-dk); padding-left:0}
+}
+.path:hover{background:rgba(255,253,248,.03)}
+.path .pt{
+  font-size:clamp(1.6rem,3vw,2.4rem); line-height:1.18; color:#FFFDF8;
+  font-variation-settings:"wdth" 112,"wght" 500;
+  display:flex; align-items:baseline; gap:16px;
+}
+.path .ar{font-size:1.1rem; color:var(--bronze); transition:transform .24s ease; font-variation-settings:"wght" 400}
+.path:hover .ar{transform:translateX(9px)}
+.path p{margin-top:18px; font-size:.97rem; color:var(--on-ink-2); max-width:40ch}
+.path .pm{
+  display:inline-block; margin-top:28px; font-size:.72rem;
+  font-variation-settings:"wdth" 106,"wght" 600; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--bronze);
+}
+
+/* ── sections ─────────────────────────────────────────────────── */
+section{padding-block:var(--vspace)}
+.band{background:var(--paper-2)}
+.sechead{max-width:54ch}
+.sechead h2{margin-top:20px}
+.sechead .lede{margin-top:26px}
+
+.split{display:grid; grid-template-columns:1fr 1fr; gap:clamp(40px,6vw,96px); align-items:start}
+@media(max-width:900px){.split{grid-template-columns:1fr; gap:40px}}
+
+/* hairline lists */
+.rules{list-style:none; padding:0; margin:0; border-top:1px solid var(--line)}
+.rules li{
+  display:flex; justify-content:space-between; align-items:baseline; gap:26px;
+  padding:19px 0; border-bottom:1px solid var(--line-soft); font-size:1rem; min-width:0;
+}
+.rules em{
+  font-style:normal; font-size:.73rem; font-variation-settings:"wdth" 106,"wght" 600;
+  letter-spacing:.13em; text-transform:uppercase; color:var(--bronze); flex:none;
+}
+
+/* door styles — 2 × 2, large */
+.doors{display:grid; grid-template-columns:1fr 1fr; gap:clamp(24px,3.4vw,56px) clamp(22px,3vw,48px); margin-top:clamp(56px,7vw,96px)}
+@media(max-width:680px){.doors{grid-template-columns:1fr}}
+.door figure{margin:0}
+.door img{width:100%; aspect-ratio:3/2; object-fit:cover; background:var(--paper-2)}
+.door figcaption{display:flex; justify-content:space-between; align-items:baseline; gap:18px; margin-top:20px; padding-bottom:16px; border-bottom:1px solid var(--line)}
+.door h3{min-width:0}
+.door .meta{font-size:.78rem; color:var(--fg-2); flex:none; text-align:right}
+.note{margin-top:26px; font-size:.92rem; color:var(--fg-2); line-height:1.7}
+.note b{color:var(--fg); font-variation-settings:"wght" 600}
+.doors-note{margin-top:clamp(32px,4vw,48px); font-size:.95rem; color:var(--fg-2); max-width:56ch}
+
+/* process */
+.steps{display:grid; grid-template-columns:repeat(3,1fr); margin-top:clamp(60px,8vw,104px); border-top:1px solid var(--line)}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{padding:36px clamp(26px,3.4vw,52px) 40px 0; min-width:0}
+.step+.step{border-left:1px solid var(--line-soft); padding-left:clamp(26px,3.4vw,52px)}
+@media(max-width:820px){
+  .step{padding-right:0}
+  .step+.step{border-left:0; border-top:1px solid var(--line-soft); padding-left:0}
+}
+.step .n{
+  font-size:.74rem; font-variation-settings:"wdth" 106,"wght" 600; letter-spacing:.24em;
+  color:var(--bronze); display:block; margin-bottom:22px;
+}
+.step p{margin-top:13px; font-size:.95rem; color:var(--fg-2)}
+
+/* ── full-bleed texture band ──────────────────────────────────── */
+.band-img{position:relative; background:var(--ink); min-height:clamp(300px,42vh,480px); display:flex; align-items:center; overflow:hidden}
+.band-img img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; opacity:.78}
+.band-img::after{content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(92deg,rgba(26,25,22,.86) 0%,rgba(26,25,22,.56) 52%,rgba(26,25,22,.22) 100%)}
+.band-img .wrap{position:relative; z-index:2; padding-block:clamp(56px,8vw,88px)}
+.band-img p{
+  color:#FFFDF8; font-size:clamp(1.35rem,2.7vw,2.1rem); line-height:1.44; max-width:26ch;
+  font-variation-settings:"wdth" 110,"wght" 400;
+}
+.band-img .src{margin-top:22px; font-size:.76rem; letter-spacing:.16em; text-transform:uppercase; color:var(--bronze-lt); font-variation-settings:"wdth" 106,"wght" 600}
+
+/* repair photo */
+.repair-img img{width:100%; aspect-ratio:3/2; object-fit:cover}
+
+/* self-help */
+.fixes{display:grid; grid-template-columns:1fr 1fr; gap:0 clamp(44px,6vw,88px); margin-top:clamp(48px,6vw,72px)}
+@media(max-width:840px){.fixes{grid-template-columns:1fr}}
+.fix{padding:26px 0; border-bottom:1px solid var(--line-soft); min-width:0}
+.fix h4{font-size:1.1rem; font-variation-settings:"wdth" 110,"wght" 600}
+.fix p{margin-top:10px; font-size:.94rem; color:var(--fg-2)}
+
+.stop{margin-top:clamp(56px,7vw,80px); border-left:2px solid var(--warn); padding:6px 0 6px clamp(26px,3.6vw,42px)}
+.stop .eyebrow{color:var(--warn)}
+.stop h3{margin-top:16px; font-size:1.5rem; font-variation-settings:"wdth" 112,"wght" 500; line-height:1.3}
+.stop ul{margin:24px 0 0; padding-left:21px; font-size:.97rem; color:var(--fg-2); max-width:68ch}
+.stop li{margin-bottom:13px}
+.stop li::marker{color:var(--warn)}
+.stop b{color:var(--fg); font-variation-settings:"wght" 600}
+.stop .after{margin-top:24px; font-size:.95rem}
+.stop a{color:var(--warn); font-variation-settings:"wght" 600}
+
+/* ── quote ────────────────────────────────────────────────────── */
+.quote{background:var(--ink); color:var(--on-ink)}
+.quote h2{color:#FFFDF8}
+.qgrid{display:grid; grid-template-columns:.8fr 1.2fr; gap:clamp(40px,6vw,88px); align-items:start}
+@media(max-width:960px){.qgrid{grid-template-columns:1fr; gap:44px}}
+.qpts{list-style:none; padding:0; margin:36px 0 0; display:grid; gap:19px}
+.qpts li{display:flex; gap:16px; font-size:.96rem; color:var(--on-ink-2); line-height:1.66}
+.qpts b{color:#FFFDF8; font-variation-settings:"wght" 600}
+.qpts .dot{flex:none; width:5px; height:5px; margin-top:10px; background:var(--bronze); border-radius:50%}
+
+.card{background:var(--surface); color:var(--fg); padding:clamp(26px,3.6vw,48px)}
+.switch{display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); margin-bottom:32px}
+.switch button{
+  font-family:var(--ui); font-size:.95rem; font-variation-settings:"wdth" 106,"wght" 600;
+  padding:17px 10px; cursor:pointer; background:transparent; color:var(--fg-2);
+  border:0; transition:all .18s ease;
+}
+.switch button+button{border-left:1px solid var(--line)}
+.switch button[aria-pressed="true"]{background:var(--ink); color:var(--on-ink)}
+
+form{display:grid; gap:20px}
+.frow{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+@media(max-width:580px){.frow{grid-template-columns:1fr}}
+.field{display:grid; gap:9px; min-width:0}
+label{
+  font-size:.71rem; font-variation-settings:"wdth" 106,"wght" 600;
+  letter-spacing:.15em; text-transform:uppercase; color:var(--fg-2);
+}
+label .hint{
+  display:block; letter-spacing:.005em; text-transform:none; font-size:.81rem;
+  margin-top:7px; color:var(--fg-2); line-height:1.55; font-variation-settings:"wght" 400;
+}
+input,select,textarea{
+  font-family:var(--ui); font-size:.98rem; color:var(--fg); background:var(--paper);
+  border:1px solid var(--line); border-radius:0; padding:15px 16px; width:100%; min-width:0;
+  transition:border-color .16s ease,background .16s ease;
+}
+input::placeholder,textarea::placeholder{color:#A09C94}
+input:focus,select:focus,textarea:focus{border-color:var(--ink); background:var(--surface)}
+textarea{resize:vertical; min-height:104px}
+select{
+  appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--fg) 50%),linear-gradient(135deg,var(--fg) 50%,transparent 50%);
+  background-position:calc(100% - 20px) 55%,calc(100% - 15px) 55%;
+  background-size:5px 5px,5px 5px; background-repeat:no-repeat;
+}
+input[type=file]{padding:13px 16px; font-size:.87rem}
+input[type=file]::file-selector-button{
+  font-family:var(--ui); font-size:.71rem; font-variation-settings:"wdth" 106,"wght" 600;
+  letter-spacing:.14em; text-transform:uppercase; margin-right:16px; cursor:pointer;
+  background:var(--ink); color:var(--on-ink); border:0; padding:11px 16px;
+}
+.hp{position:absolute; left:-9999px}
+.submit{
+  font-family:var(--ui); font-size:.97rem; font-variation-settings:"wdth" 106,"wght" 600;
+  letter-spacing:.015em; padding:20px 32px; cursor:pointer; background:var(--ink);
+  color:var(--on-ink); border:1px solid var(--ink); transition:all .2s ease;
+}
+.submit:hover{background:var(--bronze); border-color:var(--bronze); color:#1B1306}
+.fnote{font-size:.82rem; color:var(--fg-2); line-height:1.66}
+.sent{display:none; border:1px solid var(--bronze); background:var(--bronze-soft); padding:28px; font-size:.97rem}
+.sent.on{display:block}
+.sent b{color:#6B4D1F; font-variation-settings:"wght" 600}
+form.off{display:none}
+
+/* ── trust ────────────────────────────────────────────────────── */
+.trust{display:grid; grid-template-columns:repeat(4,1fr); margin-top:clamp(52px,6vw,76px); border-top:1px solid var(--line)}
+@media(max-width:940px){.trust{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.trust{grid-template-columns:1fr}}
+.tc{padding:34px clamp(22px,2.8vw,40px) 36px 0; min-width:0; border-bottom:1px solid var(--line-soft)}
+.tc+.tc{border-left:1px solid var(--line-soft); padding-left:clamp(22px,2.8vw,40px)}
+@media(max-width:940px){.tc:nth-child(3){border-left:0; padding-left:0}}
+@media(max-width:560px){.tc+.tc{border-left:0; padding-left:0} .tc{padding-right:0}}
+.tc p{margin-top:13px; font-size:.92rem; color:var(--fg-2)}
+.tc .mk{
+  display:block; margin-top:18px; font-size:.73rem; font-variation-settings:"wdth" 106,"wght" 600;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--bronze);
+}
+
+/* ── footer ───────────────────────────────────────────────────── */
+footer{background:var(--ink); color:var(--on-ink-2); padding-block:clamp(60px,8vw,92px) 44px; font-size:.93rem}
+.fgrid{display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:clamp(32px,4.4vw,52px)}
+@media(max-width:820px){.fgrid{grid-template-columns:1fr; gap:34px}}
+footer h4{
+  color:var(--bronze-lt); font-size:.71rem; font-variation-settings:"wdth" 106,"wght" 600;
+  letter-spacing:.22em; text-transform:uppercase; margin-bottom:20px;
+}
+footer a{text-decoration:none}
+footer a:hover{color:#FFFDF8}
+.cline{color:#FFFDF8; font-size:1.04rem; user-select:all; font-variant-numeric:tabular-nums}
+.legal{
+  margin-top:clamp(44px,6vw,64px); padding-top:26px; border-top:1px solid var(--line-dk);
+  font-size:.75rem; line-height:1.95; color:#8C8880;
+}
+.credit{
+  margin-top:18px; font-size:.75rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--bronze-lt); font-variation-settings:"wdth" 106,"wght" 600;
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Bayline Door Co. — home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="1.5" y="1.5" width="29" height="29" stroke="#A8824E" stroke-width="1.7"/>
+        <path d="M1.5 9.4h29M1.5 16h29M1.5 22.6h29" stroke="#A8824E" stroke-width="1.1" opacity=".55"/>
+        <rect x="5.8" y="4.3" width="20.4" height="3.4" fill="#C9A271" opacity=".6"/>
+      </svg>
+      <span class="bt">
+        <span class="bn">Bayline</span>
+        <span class="bs">Door Co.</span></span>
+    </a>
+
+    <nav class="nav">
+      <a href="#new">New Doors</a>
+      <a href="#repair">Repair</a>
+      <a href="#selfhelp">Fix It Yourself</a>
+      <a class="last" href="#quote" data-go="new">Free Quote</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ HERO ═════════════════════════════════════════════════════ -->
+<div class="hero" id="top">
+  <img class="bg" src="images/hero.jpg" alt="" fetchpriority="high">
+  <div class="wrap">
+    <p class="eyebrow">San Francisco · Peninsula · South Bay</p>
+    <h1>
+      The largest thing on the front of your house.
+      
+    </h1>
+    <p class="lede">
+      New garage doors sourced from whichever manufacturer suits the house and the budget — and the repair work that keeps one running for twenty years.
+      
+    </p>
+    <div class="cta">
+      <a class="btn btn-solid" href="#quote" data-go="new">
+        Get a free quote
+      </a>
+      <a class="btn btn-line" href="#new">
+        See door styles
+      </a>
+    </div>
+    <div class="cred">
+      <span><b>CSLB #1XXXXXX</b> · Licensed &amp; insured</span>
+      <span>Written estimate before any work</span>
+      <span>Serving the Peninsula since 2009</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TWO PATHS ════════════════════════════════════════════════ -->
+<div class="paths">
+  <div class="wrap">
+    <a class="path" href="#quote" data-go="new">
+      <span class="pt">I need a new door <span class="ar">→</span></span>
+      <p>
+        Replacing an old door, a new build, or something custom. Send the opening size and one photo of the house.
+        
+      </p>
+      <span class="pm">Quote in one business day</span>
+    </a>
+    <a class="path" href="#quote" data-go="fix">
+      <span class="pt">My door is broken <span class="ar">→</span></span>
+      <p>
+        Spring, cable, track, opener or remote. Tell us the symptom and we'll say whether it's a repair or a replacement.
+        
+      </p>
+      <span class="pm">Most faults quoted from photos</span>
+    </a>
+  </div>
+</div>
+
+<!-- ═══ NEW DOORS ════════════════════════════════════════════════ -->
+<section id="new">
+  <div class="wrap">
+    <div class="split">
+      <div class="sechead">
+        <p class="eyebrow">New doors</p>
+        <h2>A door chosen for the house, not for our showroom.</h2>
+        <p class="lede">
+          We buy from several manufacturers rather than representing one, so the choice starts with your elevation and your budget. Steel, aluminium, glass or wood overlay — whichever fits, we can source it.
+          
+        </p>
+      </div>
+      <ul class="rules">
+        <li><span>Full replacement, old door hauled away</span><em>Most common</em></li>
+        <li><span>New construction &amp; garage additions</span><em>Site measure</em></li>
+        <li><span>Custom panel, window and finish</span><em>Built to order</em></li>
+        <li><span>Opener supplied and set up</span><em>Optional</em></li>
+        <li><span>Insulated or non-insulated</span><em>Ask us</em></li>
+      </ul>
+      <p class="note"><b>On insulation —</b> worth it if the garage shares a wall with living
+      space, or you use it as a workshop or gym; it also makes the door noticeably quieter.
+      A detached garage used only for parking usually doesn't need it.</p>
+    </div>
+
+    <div class="doors">
+      <div class="door">
+        <figure>
+          <img src="images/door-raised.jpg" alt="Cream raised-panel garage door with decorative strap hardware" loading="lazy">
+          <figcaption>
+            <h3>Raised Panel</h3>
+            <span class="meta">Steel · hardware optional</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="door">
+        <figure>
+          <img src="images/door-flush.jpg" alt="Matte graphite flush modern garage door" loading="lazy">
+          <figcaption>
+            <h3>Flush Modern</h3>
+            <span class="meta">Flat face · painted</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="door">
+        <figure>
+          <img src="images/door-carriage.jpg" alt="Olive green carriage house garage door with strap hinges" loading="lazy">
+          <figcaption>
+            <h3>Carriage House</h3>
+            <span class="meta">Overlay · visible hardware</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="door">
+        <figure>
+          <img src="images/door-glass.jpg" alt="Full-view glass garage door with aluminium frame and frosted panes" loading="lazy">
+          <figcaption>
+            <h3>Full-View Glass</h3>
+            <span class="meta">Aluminium · clear or frosted</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p class="doors-note">
+      These four are starting points, not a catalogue. Panel count, window placement, colour and hardware are all adjustable — send a photo of the house and we'll mark up what suits it.
+      
+    </p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">01</span>
+        <h3>Send sizes and a photo</h3>
+        <p>Opening width and height, plus one photo of the house from the street. If you don't know the size, say so — we'll come and measure.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3>We come back with options</h3>
+        <p>Two or three doors from different manufacturers that suit the house and the budget, each with its price in writing.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3>Order and install</h3>
+        <p>Stock doors install in a day. Custom doors are built to order; the lead time is confirmed before you pay anything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TEXTURE BAND ═════════════════════════════════════════════ -->
+<div class="band-img">
+  <img src="images/texture.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <p>
+      A garage door opens and closes roughly 1,500 times a year. Everything we fit is chosen with that number in mind.
+      
+    </p>
+    <p class="src">Rollers · Hinges · Springs · Cables</p>
+  </div>
+</div>
+
+<!-- ═══ REPAIR ═══════════════════════════════════════════════════ -->
+<section class="band" id="repair">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="sechead">
+          <p class="eyebrow">Repair</p>
+          <h2>We'll tell you when it isn't worth repairing.</h2>
+          <p class="lede">
+            Most doors are worth fixing. Some aren't — a door with rusted-through sections or a bent frame costs more to keep patching than to replace. You get that assessment before you spend anything.
+            
+          </p>
+        </div>
+        <ul class="rules" style="margin-top:42px">
+          <li><span>Broken torsion or extension spring</span><em>In pairs</em></li>
+          <li><span>Frayed or snapped cable</span><em>Same visit</em></li>
+          <li><span>Door off its track, bent rail</span><em>Realign</em></li>
+          <li><span>Opener not running or grinding</span><em>Fix or swap</em></li>
+          <li><span>Noisy rollers and hinges</span><em>Tune-up</em></li>
+          <li><span>Remote, keypad or sensor faults</span><em>Often quick</em></li>
+          <li><span>Dented or damaged panel</span><em>Panel or door</em></li>
+        </ul>
+      </div>
+      <div class="repair-img">
+        <img src="images/repair.jpg" alt="Technician adjusting a garage door roller bracket" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SELF HELP ════════════════════════════════════════════════ -->
+<section id="selfhelp">
+  <div class="wrap">
+    <div class="sechead">
+      <p class="eyebrow">Before you call anyone</p>
+      <h2>Six things you can fix in ten minutes.</h2>
+      <p class="lede">
+        A good share of the calls we get turn out to be one of these. Try them first — if one works, you've saved a service charge. We'd rather you spend the money when you actually need us.
+        
+      </p>
+    </div>
+
+    <div class="fixes">
+      <div class="fix">
+        <h4>Remote does nothing</h4>
+        <p>Change the battery first — it is the single most common cause. If a fresh battery doesn't help, re-pair the remote using the Learn button on the motor unit; the sequence is printed on the unit or in its manual.</p>
+      </div>
+      <div class="fix">
+        <h4>Door closes, then reverses</h4>
+        <p>The two safety sensors near the floor are blocked or knocked out of alignment. Clear the beam, wipe both lenses, and nudge them until both indicator lights are steady rather than blinking.</p>
+      </div>
+      <div class="fix">
+        <h4>Power is out, door won't open</h4>
+        <p>Pull the red emergency release cord hanging from the opener rail — it disconnects the door from the motor so you can lift by hand. Only do this with the door fully closed.</p>
+      </div>
+      <div class="fix">
+        <h4>Wall button and remote both dead</h4>
+        <p>Check the breaker and make sure the opener is still plugged in — a GFCI outlet in the garage can trip without anyone noticing. Reset it before assuming the opener has failed.</p>
+      </div>
+      <div class="fix">
+        <h4>The door is loud</h4>
+        <p>Spray a garage-door lubricant on the rollers, hinges and springs, then run the door twice. Don't use WD-40 — it strips the grease instead of replacing it.</p>
+      </div>
+      <div class="fix">
+        <h4>Keypad stopped working</h4>
+        <p>Replace the keypad battery, then reset the PIN from the motor unit. Outdoor keypads fail early in wet winters, and a replacement is inexpensive.</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <p class="eyebrow">Please don't attempt these</p>
+      <h3>Three repairs that send people to hospital every year.</h3>
+      <ul>
+        <li><b>A broken spring.</b> A torsion spring holds enough stored energy to break bones. It needs winding bars and the correct wire size — and both springs get replaced together, not only the broken one.</li>
+        <li><b>A door off its track.</b> The door can drop. Don't lever it back — leave it where it is and keep cars and people out from under it.</li>
+        <li><b>A snapped cable.</b> The door is unbalanced and will fall unevenly if you lift it. Leave it closed.</li>
+      </ul>
+      <p class="after">
+        If one of these is what's happening, call <a href="tel:+16505550142">(650) 555-0142</a> rather than filling in the form.
+        
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUOTE ════════════════════════════════════════════════════ -->
+<section class="quote" id="quote">
+  <div class="wrap">
+    <div class="qgrid">
+      <div>
+        <p class="eyebrow">Free quote</p>
+        <h2 style="margin-top:20px">Tell us which one you need.</h2>
+        <ul class="qpts">
+          <li><span class="dot"></span><span>Written estimate back within <b>one business day</b></span></li>
+          <li><span class="dot"></span><span><b>No trip charge</b> when we can quote from photos</span></li>
+          <li><span class="dot"></span><span>Photos are used for the estimate only and are never published</span></li>
+          <li><span class="dot"></span><span>Door stuck with a car inside? Call <b>(650) 555-0142</b> instead</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="switch" role="group" aria-label="Request type">
+          <button id="tab-new" aria-pressed="true">New door</button>
+          <button id="tab-fix" aria-pressed="false">Repair</button>
+        </div>
+
+        <form id="quoteForm" name="quote" method="POST" data-netlify="true" netlify-honeypot="company-url">
+          <input type="hidden" name="form-name" value="quote">
+          <input type="hidden" name="request_type" id="requestType" value="new-door">
+          <p class="hp"><label for="company-url">Do not fill</label><input id="company-url" name="company-url" tabindex="-1" autocomplete="off"></p>
+
+          <div class="frow">
+            <div class="field">
+              <label for="q-name">Name</label>
+              <input id="q-name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="q-phone">Phone</label>
+              <input id="q-phone" name="phone" type="tel" required autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="frow">
+            <div class="field">
+              <label for="q-email">Email</label>
+              <input id="q-email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="q-addr">Property address</label>
+              <input id="q-addr" name="address" required autocomplete="street-address" placeholder="Street, city, ZIP">
+            </div>
+          </div>
+
+          <div id="grp-new">
+            <div class="frow">
+              <div class="field">
+                <label for="q-bays">How many bays</label>
+                <select id="q-bays" name="bays">
+                  <option value="single">Single — one car</option>
+                  <option value="double">Double — two cars, one door</option>
+                  <option value="two-doors">Two separate doors</option>
+                  <option value="unsure">Not sure</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="q-size">
+                  Opening size
+                  <span class="hint">Width × height in feet. Write "unknown" if you haven't measured.</span>
+                </label>
+                <input id="q-size" name="opening_size" placeholder="16 × 7 ft">
+              </div>
+            </div>
+            <div class="frow" style="margin-top:20px">
+              <div class="field">
+                <label for="q-style">Style you have in mind</label>
+                <select id="q-style" name="style">
+                  <option value="advice">Not sure — I'd like a recommendation</option>
+                  <option value="raised">Raised panel</option>
+                  <option value="flush">Flush modern</option>
+                  <option value="carriage">Carriage house</option>
+                  <option value="glass">Full-view glass</option>
+                  <option value="custom">Fully custom</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="q-budget">
+                  Budget range
+                  <span class="hint">A rough range lets us skip the doors that don't fit.</span>
+                </label>
+                <select id="q-budget" name="budget">
+                  <option value="unsure">Not sure yet — show me options</option>
+                  <option value="u2k">Under $2,000</option>
+                  <option value="2-4k">$2,000 – $4,000</option>
+                  <option value="4-7k">$4,000 – $7,000</option>
+                  <option value="7kplus">$7,000 and up / custom</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div id="grp-fix" hidden>
+            <div class="frow">
+              <div class="field">
+                <label for="q-fault">What's wrong</label>
+                <select id="q-fault" name="fault">
+                  <option value="">— Select —</option>
+                  <option value="spring">Spring broken — door won't lift</option>
+                  <option value="offtrack">Door is off its track / crooked</option>
+                  <option value="cable">Cable snapped or frayed</option>
+                  <option value="opener">Opener runs but door doesn't move</option>
+                  <option value="nopower">Nothing happens at all</option>
+                  <option value="reverse">Door reverses before closing</option>
+                  <option value="remote">Remote, keypad or sensor fault</option>
+                  <option value="noise">Very noisy</option>
+                  <option value="panel">Dented or damaged panel</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="q-doorsize">
+                  Door size
+                  <span class="hint">Roughly is fine — single or double, and height.</span>
+                </label>
+                <input id="q-doorsize" name="door_size" placeholder="Double, about 16 × 7 ft">
+              </div>
+            </div>
+            <div class="frow" style="margin-top:20px">
+              <div class="field">
+                <label for="q-opener">
+                  Opener brand &amp; model
+                  <span class="hint">On the label on the motor unit — a photo of that label works too.</span>
+                </label>
+                <input id="q-opener" name="opener" placeholder="e.g. LiftMaster 8355W">
+              </div>
+              <div class="field">
+                <label for="q-when">How urgent</label>
+                <select id="q-when" name="urgency">
+                  <option value="today">Today — car is stuck inside</option>
+                  <option value="soon">This week</option>
+                  <option value="flex">Whenever suits</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="q-photos">
+              Photos
+              <span class="hint">One of the house from the street, one of the door closed. Up to 3, 5 MB each.</span>
+            </label>
+            <input id="q-photos" name="photos" type="file" accept="image/*" multiple>
+          </div>
+
+          <div class="field">
+            <label for="q-notes">Anything else</label>
+            <textarea id="q-notes" name="notes"></textarea>
+          </div>
+
+          <button class="submit" type="submit">Send request</button>
+          <p class="fnote">
+            Estimates given from photos are preliminary. Final pricing is confirmed in writing after the door is measured or inspected on site.
+            
+          </p>
+        </form>
+
+        <div class="sent" id="sentMsg" role="status">
+          <b>Template form — nothing was sent.</b><br>
+          On a live site this reaches the owner's inbox and a tracking sheet within seconds, photos attached, tagged as a new-door or repair enquiry.
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST ════════════════════════════════════════════════════ -->
+<section class="band">
+  <div class="wrap">
+    <div class="sechead">
+      <p class="eyebrow">How we work</p>
+      <h2>Nothing starts without a number in writing.</h2>
+    </div>
+    <div class="trust">
+      <div class="tc">
+        <h3>Licensed and insured</h3>
+        <p>California contractor's licence carried on every job, with general liability and workers' compensation in force.</p>
+        <span class="mk">CSLB #1XXXXXX</span>
+      </div>
+      <div class="tc">
+        <h3>Written estimate first</h3>
+        <p>Parts, labour and timeline in writing before work begins. If something on site changes the price, we stop and ask.</p>
+        <span class="mk">No verbal-only pricing</span>
+      </div>
+      <div class="tc">
+        <h3>Multiple manufacturers</h3>
+        <p>We're not a dealership for one brand, so we have no reason to push a door that doesn't suit the house.</p>
+        <span class="mk">Sourced to fit</span>
+      </div>
+      <div class="tc">
+        <h3>Warranty in writing</h3>
+        <p>Manufacturer warranty on the door and opener, plus our own labour warranty on installation and spring work.</p>
+        <span class="mk">With every estimate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>Bayline Door Co.</h4>
+        <p style="max-width:36ch">
+          New garage doors and repair work across San Francisco, the Peninsula and the South Bay.
+          
+        </p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p class="cline">(650) 555-0142</p>
+        <p class="cline">info@baylinedoor.com</p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Monday – Saturday, 8:00 – 18:00</p>
+        <p style="margin-top:11px">The quote form accepts photos around the clock.</p>
+      </div>
+    </div>
+    <p class="legal">
+      Template. Company name, licence number, phone, email and hours are placeholders for layout purposes — the phone uses the 555-01xx range reserved for examples and reaches no one. CSLB Lic. #1XXXXXX. Any prices shown are estimates only and do not constitute an offer; final pricing is confirmed in a written estimate after measurement or inspection.
+      
+    </p>
+    <p class="credit">Template designed by Ryan Yan</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var tabNew = document.getElementById('tab-new'),
+      tabFix = document.getElementById('tab-fix'),
+      grpNew = document.getElementById('grp-new'),
+      grpFix = document.getElementById('grp-fix'),
+      reqType = document.getElementById('requestType'),
+      form = document.getElementById('quoteForm'),
+      sent = document.getElementById('sentMsg'),
+      fault = document.getElementById('q-fault');
+
+  function setMode(m){
+    var isNew = (m === 'new');
+    grpNew.hidden = !isNew;
+    grpFix.hidden = isNew;
+    tabNew.setAttribute('aria-pressed', String(isNew));
+    tabFix.setAttribute('aria-pressed', String(!isNew));
+    reqType.value = isNew ? 'new-door' : 'repair';
+    fault.required = !isNew;
+  }
+
+  tabNew.addEventListener('click', function(){ setMode('new'); });
+  tabFix.addEventListener('click', function(){ setMode('fix'); });
+
+  // links that jump to the form pre-select the matching tab
+  var g = document.querySelectorAll('[data-go]');
+  for(var i=0;i<g.length;i++){
+    g[i].addEventListener('click', function(){ setMode(this.getAttribute('data-go')); });
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    form.classList.add('off');
+    document.querySelector('.switch').hidden = true;
+    sent.classList.add('on');
+    sent.scrollIntoView({block:'center', behavior:'smooth'});
+  });
+
+  setMode('new');
+})();
+</script>
+</body>
+</html>
